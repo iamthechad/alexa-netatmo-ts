@@ -1,3 +1,4 @@
+/* tslint:disable:no-implicit-dependencies */
 import * as express from "express";
 import * as bodyParser from "body-parser";
 import { AddressInfo } from "net";
@@ -19,9 +20,10 @@ function CreateHandler(handler: LambdaHandler): express.RequestHandler {
 
 // create server
 const server = express();
-const listener = server.listen(process.env.port || process.env.PORT || 3980, function () {
+const listener = server.listen(process.env.port || process.env.PORT || 3980, () => {
   const { address, port } = listener.address() as AddressInfo;
-  console.log('%s listening to %s%s', server.name, address, port);
+  /* tslint:disable-next-line:no-console */
+  console.log("%s listening to %s%s", server.name, address, port);
 });
 
 // parse json

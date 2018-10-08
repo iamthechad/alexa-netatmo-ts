@@ -21,7 +21,7 @@ export class Conversion {
   }
 
   public static convertPressure(originalValue: number, naUserSetting: number): number {
-    var retValue;
+    let retValue;
     switch (naUserSetting) {
       case 1:
         retValue = originalValue * this.MBAR_TO_INHG;
@@ -38,13 +38,13 @@ export class Conversion {
   public static getPressureUnitsString(naUserSetting: number): string {
     switch (naUserSetting) {
       case 0:
-        return 'millibars';
+        return "millibars";
       case 1:
-        return 'inches mercury';
+        return "inches mercury";
       case 2:
-        return 'millimeters mercury';
+        return "millimeters mercury";
       default:
-        return '';
+        return "";
     }
   }
 
@@ -53,9 +53,9 @@ export class Conversion {
   }
 
   private static roundNumberWithPrecision(value: number, precision: number): number {
-    var roundVar = 10;
+    let roundVar = 10;
     if (precision > 1) {
-      for (var i = 0; i < precision; i++) {
+      for (let i = 0; i < precision; i++) {
         roundVar *= 10;
       }
     }
