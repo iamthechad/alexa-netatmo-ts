@@ -1,0 +1,25 @@
+service: netatmo-ts
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  region: eu-west-1
+  memorySize: 128
+  timeout: 6
+
+plugins:
+- serverless-plugin-typescript
+
+package:
+  excludeDevDependencies: true
+  include:
+    src/**/!(*.spec).js
+
+functions:
+  netatmo:
+    handler: src/netatmo/index.handler
+    description: Alexa interface for Netatmo
+    events:
+    - alexaSkill: ***REMOVED***
+
+file: .serverless/output.json
